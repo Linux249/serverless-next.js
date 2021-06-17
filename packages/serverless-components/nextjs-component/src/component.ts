@@ -738,7 +738,6 @@ class NextjsComponent extends Component {
       maxTTL: 31536000,
       allowedHttpMethods: ["HEAD", "GET"],
       "lambda@edge": {
-        "origin-response": `${defaultEdgeLambdaOutputs.arn}:${defaultEdgeLambdaPublishOutputs.version}`,
         "origin-request": `${defaultEdgeLambdaOutputs.arn}:${defaultEdgeLambdaPublishOutputs.version}`
       }
     };
@@ -822,8 +821,7 @@ class NextjsComponent extends Component {
         ],
         "lambda@edge": {
           ...defaultLambdaAtEdgeConfig,
-          "origin-request": `${defaultEdgeLambdaOutputs.arn}:${defaultEdgeLambdaPublishOutputs.version}`,
-          "origin-response": `${defaultEdgeLambdaOutputs.arn}:${defaultEdgeLambdaPublishOutputs.version}`
+          "origin-request": `${defaultEdgeLambdaOutputs.arn}:${defaultEdgeLambdaPublishOutputs.version}`
         },
         compress: true
       },
